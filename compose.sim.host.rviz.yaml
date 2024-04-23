@@ -1,0 +1,24 @@
+x-gpu-config:
+  &gpu-config
+  #  runtime: nvidia
+  env_file: .env.gpu
+
+services:
+
+  rviz:
+    image: husarion/rviz2:humble-11.2.6-20230809
+    <<: *gpu-config
+    network_mode: host
+    environment: 
+      - ROS_LOCALHOST_ONLY=0
+      - ROS_DOMAIN_ID=10
+        #      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./config/rosbot.rviz:/default.rviz
+    command: >
+      rviz2 -d /default.rviz --ros-args
+        -r /tf:=tf
+        -r /tf_static:=tf_static
+        -r __ns:=/${ROBOT_NAMESPACE}
+

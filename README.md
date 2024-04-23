@@ -99,6 +99,26 @@ To enable autonomy on the robot, it is necessary:
 - starting autonomy on ROSbot
 - launching visualization on PC
 
+### Run the containers using docker-compose 
+Make sure the AGX and the host PC are connected to the same network and the devices are pingable. check dmesg and use ufw to ensure the devices can communicate with one another. 
+
+On the Simulation host PC: 
+
+```bash
+docker-compose up -f compose.sim.host.gazebo.yaml
+```
+
+Then, on the client device (AGX), 
+```bash
+docker-compose up -f compose.sim.agx.yaml
+```
+
+Then, once that is running, run rviz on the host: 
+
+```bash
+docker-compose up -f compose.sim.rviz.yaml
+```
+
 #### ROSbot
 
 1. Connect to the ROSbot.
