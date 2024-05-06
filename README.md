@@ -105,18 +105,18 @@ Make sure the AGX and the host PC are connected to the same network and the devi
 On the Simulation host PC: 
 
 ```bash
-docker-compose up -f compose.sim.host.gazebo.yaml
+docker compose -f compose.sim.host.gazebo.yaml up
 ```
 
 Then, on the client device (AGX), 
 ```bash
-docker-compose up -f compose.sim.agx.yaml
+docker compose -f compose.sim.agx.yaml up
 ```
 
 Then, once that is running, run rviz on the host: 
 
 ```bash
-docker-compose up -f compose.sim.rviz.yaml
+docker compose -f compose.sim.rviz.yaml up
 ```
 
 #### ROSbot
