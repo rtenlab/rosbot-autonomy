@@ -16,6 +16,7 @@ services:
       - SAVE_MAP_PERIOD=${SAVE_MAP_PERIOD}
       - ROS_LOCALHOST_ONLY=0
       - ROS_DOMAIN_ID=10
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     command: >
       ros2 launch /husarion_utils/bringup_launch.py
         slam:=${SLAM:-True}

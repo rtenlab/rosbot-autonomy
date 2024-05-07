@@ -1,6 +1,6 @@
 x-gpu-config:
   &gpu-config
-  #  runtime: nvidia
+  runtime: nvidia
   env_file: .env.gpu
 
 services:
@@ -12,7 +12,7 @@ services:
     environment: 
       - ROS_LOCALHOST_ONLY=0
       - ROS_DOMAIN_ID=10
-        #      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ./config/rosbot.rviz:/default.rviz

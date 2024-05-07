@@ -1,6 +1,6 @@
 x-gpu-config:
   &gpu-config
-  #  runtime: nvidia
+  runtime: nvidia
   env_file: .env.gpu
 
 services:
@@ -15,7 +15,7 @@ services:
       - ROBOT_NAMESPACE=${ROBOT_NAMESPACE}
       - ROS_LOCALHOST_ONLY=0
       - ROS_DOMAIN_ID=10
-        #- RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     command: >
        ros2 launch rosbot_gazebo simulation.launch.py
         mecanum:=${MECANUM:-True}

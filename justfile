@@ -1,4 +1,4 @@
-set dotenv-load # to read ROBOT_NAMESPACE from .env file
+set dotenv-load
 
 [private]
 alias husarnet := connect-husarnet
